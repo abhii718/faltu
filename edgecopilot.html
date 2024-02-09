@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Notepad</title>
+  <style>
+    /* This is a CSS comment */
+    /* You can use the body selector to style the whole page */
+    body {
+      background-color: lightgray; /* You can use any color name or code here */
+      font-family: Arial, sans-serif; /* You can use any font name here */
+    }
+
+    /* You can use the id selector to style a specific element */
+    #notes {
+      width: 80%;
+      height: 300px;
+      margin: 20px auto; /* This centers the element horizontally */
+      font-size: 18px;
+      border: 2px solid black; /* This adds a border around the element */
+    }
+
+    #save {
+      display: block;
+      width: 100px;
+      height: 40px;
+      margin: 10px auto;
+      background-color: green;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* You can use the hover pseudo-class to change the style when the mouse is over the element */
+    #save:hover {
+      background-color: darkgreen; /* This makes the button darker when hovered */
+    }
+  </style>
+</head>
+<body>
+  <textarea id="notes" placeholder="Write your notes here..."></textarea>
+  <button id="save" onclick="saveNotes()">Save</button>
+  <script>
+    // Get the notes element
+    var notes = document.getElementById("notes");
+
+    // Load the saved notes from the local storage
+    var savedNotes = localStorage.getItem("notes");
+    if (savedNotes) {
+      notes.value = savedNotes;
+    }
+
+    // Define a function to save the notes to the local storage
+    function saveNotes() {
+      localStorage.setItem("notes", notes.value);
+      alert("Notes saved!");
+    }
+  </script>
+</body>
+</html>

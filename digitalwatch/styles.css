@@ -1,0 +1,24 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  } 
+
+   
+  .digital-watch {
+    text-align: center;
+  }
+  
+  #time {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  #alarm {
+    font-size: 1.5em;
+    color: red;
+  }
+  

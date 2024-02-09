@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Notepad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            margin: 0;
+        }
+        #notes {
+            width: 80%;
+            height: 200px;
+            margin: 20px auto;
+            display: block;
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        button {
+            display: block;
+            width: 100px;
+            margin: 10px auto;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Notepad</h1>
+    <textarea id="notes"></textarea>
+    <button onclick="saveNotes()">Save Notes</button>
+    <button onclick="loadNotes()">Load Notes</button>
+
+    <script>
+        function saveNotes() {
+            var notes = document.getElementById('notes').value;
+            localStorage.setItem('notes', notes);
+        }
+
+        function loadNotes() {
+            var notes = localStorage.getItem('notes');
+            if (notes) {
+                document.getElementById('notes').value = notes;
+            }
+        }
+
+        // Load any saved notes when the page loads
+        window.onload = loadNotes;
+    </script>
+</body>
+</html>
